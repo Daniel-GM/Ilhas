@@ -57,7 +57,7 @@ public class Kruskal{
         for (int i = 0; i < size_arvore; i++) {
             int v1 = 1 + arvore.get(i).getVertice1();
             int v2 = 1 + arvore.get(i).getVertice2();
-            System.out.println("(" + v1 + " <---> " + v2 + ") = " + arvore.get(i).getPeso());
+            System.out.println("(" + v1 + " ---> " + v2 + ") = " + arvore.get(i).getPeso());
         }
     }   
 }
