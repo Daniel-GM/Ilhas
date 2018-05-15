@@ -22,7 +22,7 @@ public class Kruskal{
     
     public void unir(ArrayList subset, int v1, int v2){
         int v1_set = busca(subset, v1);
-	int v2_set = busca(subset, v2);
+	    int v2_set = busca(subset, v2);
         subset.set(v1_set, v2_set);
     }
     
@@ -36,28 +36,22 @@ public class Kruskal{
         for (int i = 0; i < v; i++) {
             subset.add(i);
         }
-        
+
         for (int i = 0; i < size_arestas; i++) {
         //System.out.println("4");
             int v1 = busca(subset, arestas.get(i).getVertice1());
             int v2 = busca(subset, arestas.get(i).getVertice2());
             
-            if(v1 != v2){
-                arvore.add(arestas.get(i));
-                
+            if(v1 != v2 && i < v){
                 unir(subset, v1, v2);
-            }
-            
-            for (int j = v; j < arvore.size(); j++) {
-                arvore.remove(v);
+                arvore.add(arestas.get(i));
             }
         }
-        
-        int size_arvore = arvore.size();
-        for (int i = 0; i < size_arvore; i++) {
+
+        for (int i = 0; i < arvore.size(); i++) {
             int v1 = 1 + arvore.get(i).getVertice1();
             int v2 = 1 + arvore.get(i).getVertice2();
-            System.out.println("(" + v1 + " ---> " + v2 + ") = " + arvore.get(i).getPeso());
+            System.out.println(i+1+": (" + v1 + " ---> " + v2 + ") = " + arvore.get(i).getPeso());
         }
     }   
 }
